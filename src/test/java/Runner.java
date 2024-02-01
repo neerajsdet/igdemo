@@ -1,6 +1,9 @@
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.paytm.insurance.reports.ReportUtil;
+import org.paytm.insurance.reports.ScenarioUtil;
 import org.paytm.insurance.utils.PropertiesHelper;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -18,6 +21,7 @@ public class Runner  extends AbstractTestNGCucumberTests {
 
 
 
+
   @BeforeSuite
   public void beforeSuite(){
     String config = "src/test/resources/config/staging/config.properties";
@@ -27,7 +31,7 @@ public class Runner  extends AbstractTestNGCucumberTests {
 
 
   @AfterSuite
-  public void generateReport(){
+  public void tearDown(){
     ReportUtil.generateWebReport();
     ReportUtil.generateEmailAbleReport();
   }
