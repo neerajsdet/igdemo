@@ -1,65 +1,85 @@
 package api;
 
 
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.paytm.insurance.utils.CommonUtils;
 import org.paytm.insurance.utils.JsonUtil;
 import org.paytm.insurance.utils.PropertiesHelper;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class ReqResUtil {
 
-  ApiData apiData = ApiData.builder().build();
+  RequestData requestData = RequestData.builder().build();
+
   RestProcessor restProcessor = new RestProcessor();
 
 
   public void setBaseUrlAndEndpoint(String baseUrlKey, String endpointKey) {
-    apiData.setBaseUrl(PropertiesHelper.getProperty(baseUrlKey));
-    apiData.setEndpoint(PropertiesHelper.getProperty(endpointKey));
+    requestData.setBaseUrl(PropertiesHelper.getProperty(baseUrlKey));
+    requestData.setEndpoint(PropertiesHelper.getProperty(endpointKey));
   }
 
 
   public void setHeadersData(HashMap<String, String> headersMap) {
-    apiData.setHeaders(headersMap);
+    requestData.setHeaders(headersMap);
   }
 
 
   public void setQueryParamsData(HashMap<String, String> queryParamsMap) {
-    apiData.setQueryParams(queryParamsMap);
+    requestData.setQueryParams(queryParamsMap);
 
   }
-
 
 
   public void updateJsonAndSetPayload(String jsonFileName, HashMap<String, String> fileParamMap) {
-    String payload = JsonUtil.updateJsonFile(jsonFileName,fileParamMap);
-    apiData.setPayload(payload);
+    String payload = JsonUtil.updateJsonFile(jsonFileName, fileParamMap);
+    requestData.setPayload(payload);
   }
 
 
-  public void processRequestAndSetResponse(String httpMethod, int expectedResponseCode) {
-    Response response = restProcessor.processApiRequest(httpMethod,apiData);
-    apiData.setResponse(response);
-    Assert.assertEquals(apiData.getResponse().getStatusCode(), expectedResponseCode);
+  public void processRequestAndVerifyResponseCode(String httpMethod, int expectedResponseCode) {
+    Response response = restProcessor.processApiRequest(httpMethod, requestData);
+    Assert.assertEquals(response.getStatusCode(), expectedResponseCode);
   }
 
+
+  public void processRequestAndVerifyResponse(String httpMethod, int expectedResponseCode,
+      DataTable dataTable) {
+    Response response = restProcessor.processApiRequest(httpMethod, requestData);
+    Assert.assertEquals(response.getStatusCode(), expectedResponseCode);
+
+    SoftAssert softAssert = new SoftAssert();
+    List<Map<String, String>> listMap = dataTable.asMaps();
+    for (Map<String, String> hashMap : listMap) {
+      hashMap.forEach((k, v) -> {
+        if (v == null) {
+          v = "";
+        } else if (CommonUtils.globalMap.containsKey(v)) {
+          v = CommonUtils.globalMap.get(v);
+        }
+        Object jsonResponseValue = this.getValueFromResponse(response, k);
+        String actualValue = jsonResponseValue == null ? "null" : jsonResponseValue.toString();
+        softAssert.assertEquals(actualValue, v, "Actual response is not as expected");
+      });
+    }
+    softAssert.assertAll();
+  }
 
 
   public void processRequest(String httpMethod) {
-    Response response = restProcessor.processApiRequest(httpMethod,apiData);
-    apiData.setResponse(response);
+    Response response = restProcessor.processApiRequest(httpMethod, requestData);
+
   }
 
 
-
-
-  public Object getValueFromResponse(String jsonPath){
-    return apiData.getResponse().jsonPath().get(jsonPath);
+  public Object getValueFromResponse(Response response, String jsonPath) {
+    return response.jsonPath().get(jsonPath);
   }
-
-
-
-
 
 
 }

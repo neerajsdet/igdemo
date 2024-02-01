@@ -8,8 +8,7 @@ Feature: Verify Insurance Embedded Report api, endpoint:v1/public/embedded/repor
     Given set the request headers, query params and payload with json file name "embedded_report.json"
       | h:sso_token                          | h:Content-Type   | merchantId    | source   | planType    | reason   |
       | 337fb0f4-16e2-4e13-9a92-b01ac6272800 | application/json | <MERCHANT_ID> | <SOURCE> | <PLAN_TYPE> | <REASON> |
-    When perform the "POST" api call
-    Then validate the api response for below key
+      Then perform the "POST" api call, verify response code 200 and below response data
       | code | merchant_id   |
       | 200  | <MERCHANT_ID> |
 
@@ -29,8 +28,7 @@ Feature: Verify Insurance Embedded Report api, endpoint:v1/public/embedded/repor
     Given set the request headers, query params and payload with json file name "embedded_report.json"
       | h:sso_token | h:Content-Type   | merchantId    |
       | <SSO_TOKEN> | application/json | <MERCHANT_ID> |
-    When perform the "POST" api call
-    Then validate the api response for below key
+    Then perform the "POST" api call, verify response code 412 and below response data
       | code                | error_message   |
       | <EXP_RESPONSE_CODE> | <ERROR_MESSAGE> |
 

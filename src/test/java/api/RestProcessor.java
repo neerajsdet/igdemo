@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class RestProcessor {
 
 
-  public Response processApiRequest(String httpMethod, ApiData requestData) {
+  public Response processApiRequest(String httpMethod, RequestData requestData) {
     Response response = null;
     switch (httpMethod) {
       case "GET":

@@ -1,6 +1,5 @@
 package api;
 
-import io.restassured.response.Response;
 import java.util.HashMap;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -13,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class ApiData {
+public class RequestData {
 
   private String baseUrl;
   private String endpoint;
@@ -21,9 +20,11 @@ public class ApiData {
   private HashMap<String, String> headers;
   private HashMap<String, String> queryParams;
   private HashMap<String, String> pathParams;
-  private Response response;
-
-  private ApiData() {
+  private RequestData() {
   }
+
+
+
+
 
 }

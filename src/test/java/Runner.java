@@ -6,14 +6,17 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 
-
 @CucumberOptions(
     plugin = {"pretty","html:target/report/cucumber.html","json:target/report/cucumber.json"},
     features = {"src/test/resources/features/insurance"},
-    tags = "@motor or @shop-insurance",
+//    tags = "@motor",
+//    tags = "@shop-insurance",
+    tags = "@shop-insurance or @motor",
     glue = {"steps"}
 )
 public class Runner  extends AbstractTestNGCucumberTests {
+
+
 
   @BeforeSuite
   public void beforeSuite(){
@@ -22,11 +25,16 @@ public class Runner  extends AbstractTestNGCucumberTests {
     PropertiesHelper.loadProperties(config,endpoints);
   }
 
+
   @AfterSuite
   public void generateReport(){
     ReportUtil.generateWebReport();
     ReportUtil.generateEmailAbleReport();
   }
+
+
+
+
 
 
 
