@@ -42,7 +42,7 @@ public class RestProcessor {
             .thenReturn();
         break;
       default:
-        System.out.println("Invalid http method");
+        log.error("Invalid http method");
     }
 
     log.info("Received response for url: {}, request payload: {}, status code: {}, response: {}",

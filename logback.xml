@@ -7,6 +7,4 @@
       </pattern>
     </layout>
   </appender>
-  <root level="INFO">
-  </root>
 </configuration>
