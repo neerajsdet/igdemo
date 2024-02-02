@@ -11,7 +11,7 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import steps.Base;
 
-public class ReqResUtil {
+public class ReqResUtils {
   RequestData requestData = RequestData.builder().build();
   RestProcessor restProcessor = new RestProcessor();
 
@@ -33,7 +33,7 @@ public class ReqResUtil {
 
 
   public void updateJsonAndSetPayload(String jsonFileName, HashMap<String, String> fileParamMap) {
-    String payload = JsonUtil.updateJsonFile(jsonFileName, fileParamMap);
+    String payload = JsonUtils.updateJsonFile(jsonFileName, fileParamMap);
     requestData.setPayload(payload);
   }
 

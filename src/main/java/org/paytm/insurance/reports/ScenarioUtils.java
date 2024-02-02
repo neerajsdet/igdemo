@@ -3,7 +3,7 @@ package org.paytm.insurance.reports;
 import io.cucumber.java.Scenario;
 import java.util.HashMap;
 
-public class ScenarioUtil {
+public class ScenarioUtils {
   private static final HashMap<Thread, Scenario> scenarioMap = new HashMap<>();
 
 

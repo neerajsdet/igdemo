@@ -9,7 +9,7 @@ import io.restassured.filter.Filter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
-import org.paytm.insurance.reports.ScenarioUtil;
+import org.paytm.insurance.reports.ScenarioUtils;
 
 
 @Slf4j
@@ -53,7 +53,7 @@ public class RestProcessor {
 
     if (logFilter instanceof CustomLogFilter) {
       CustomLogFilter customLogFilter = (CustomLogFilter) logFilter;
-      ScenarioUtil.getScenario().attach(
+      ScenarioUtils.getScenario().attach(
           "\nAPI Request: " + customLogFilter.getRequestBuilderLogs() + "\nCurl Request: "
               + customLogFilter.getCurlBuilderLogs() + "\nAPI Response: "
               + customLogFilter.getResponseBuilderLogs(), "text/plain", "API Request/Response");

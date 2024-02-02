@@ -3,7 +3,7 @@ package steps;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
-import org.paytm.insurance.reports.ScenarioUtil;
+import org.paytm.insurance.reports.ScenarioUtils;
 import org.paytm.insurance.utils.PropertiesHelper;
 
 
@@ -20,7 +20,7 @@ public class Hooks {
 
   @Before(order = 1)
   public void runBeforeEachScenario(final Scenario scenario) {
-    ScenarioUtil.putScenario(scenario);
+    ScenarioUtils.putScenario(scenario);
   }
 
 

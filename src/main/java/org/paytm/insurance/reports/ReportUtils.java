@@ -1,19 +1,19 @@
 package org.paytm.insurance.reports;
 
 import com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview;
-import io.cucumber.java.Scenario;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.json.support.Status;
 
-public class ReportUtil {
-  private static final HashMap<Thread, Scenario> map = new HashMap<>();
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+@Slf4j
+public class ReportUtils {
 
   public static void generateWebReport(){
     File reportOutputDirectory = new File("target/report");
@@ -31,6 +31,7 @@ public class ReportUtil {
 
     ReportBuilder reportBuilder = new ReportBuilder(jsonFiles,configuration);
     reportBuilder.generateReports();
+    log.info("Report generated!");
   }
 
   @SneakyThrows
@@ -40,6 +41,7 @@ public class ReportUtil {
     results.setOutputName("emailablereport");
     results.setSourceFile("./target/report/cucumber.json");
     results.execute();
+    log.info("Emailable report generated!");
   }
 
 

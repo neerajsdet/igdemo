@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d49154c3-8f3f-43a7-9266-6e6479afecd9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/log4j2.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logback.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/reports/ReportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/reports/ReportUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/reports/ScenarioUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/reports/ScenarioUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/utils/PropertiesHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/utils/PropertiesHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rest/utils/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/JsonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rest/utils/ReqResUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/ReqResUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/rest/utils/RestProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/RestProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestNgRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestNgRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/Hooks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +45,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="vinod" />
-                    <option name="lastUsedInstant" value="1706872722" />
+                    <option name="lastUsedInstant" value="1706877229" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />

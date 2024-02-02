@@ -7,7 +7,7 @@ import java.util.HashMap;
 import lombok.SneakyThrows;
 import steps.Base;
 
-public class JsonUtil {
+public class JsonUtils {
 
 
   @SneakyThrows
