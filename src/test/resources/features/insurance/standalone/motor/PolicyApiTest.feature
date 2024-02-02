@@ -9,4 +9,4 @@ Feature: Verify Insurance Policy api, endpoint:/protection/recent-search/api/rs/
       | 1f4ef8d6-fddc-4a1c-af17-fc0e50659900 | 1f4ef8d6-fddc-4a1c-af17-fc0e50659900 | two_wheeler    | 3        |
     Then perform the "GET" api call, verify response code 200 and below response data
       | [0].id | [0].model.name | [0].rto.city.popularityRank | [0].rto.city.name |
-      | 16605  | Meteor         | null                        |                   |
+      | 16820  | Platina 110    | null                        | Mumbai            |

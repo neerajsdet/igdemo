@@ -46,8 +46,9 @@ public class RestProcessor {
         System.out.println("Invalid http method");
     }
 
-    log.info("Received response for url {}, status code {}, body {}",
+    log.info("Received response for url: {}, request payload: {}, status code: {}, response: {}",
         requestData.getBaseUrl(),
+        requestData.getPayload(),
         response.statusCode(),
         response.body().asString());
 
@@ -58,7 +59,6 @@ public class RestProcessor {
               + customLogFilter.getCurlBuilderLogs() + "\nAPI Response: "
               + customLogFilter.getResponseBuilderLogs(), "text/plain", "API Request/Response");
     }
-
     return response;
   }
 

@@ -10,8 +10,10 @@ import io.restassured.specification.FilterableResponseSpecification;
 import java.util.Optional;
 import lombok.Getter;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 
+@Slf4j
 @Getter
 public class CustomLogFilter implements Filter {
 
@@ -49,7 +51,8 @@ public class CustomLogFilter implements Filter {
         "\n Body: " + Optional.ofNullable(requestSpec.getBody()).orElse("Null"));
     requestBuilderLogs.append(
         "\n------------------------------------------------------------------");
-    System.out.println(requestBuilderLogs);
+//    log.info(requestBuilderLogs.toString());
+
 
     curlBuilderLogs.append(
         "\n curl --location --request " + Optional.ofNullable(requestSpec.getMethod()).orElse("Null"));
@@ -60,7 +63,7 @@ public class CustomLogFilter implements Filter {
     curlBuilderLogs.append(
         "\n --data-raw '" + Optional.ofNullable(requestSpec.getBody()).orElse("Null") + "'\n");
     curlBuilderLogs.append("------------------------------------------------------------------");
-    System.out.println(curlBuilderLogs);
+//    log.info(curlBuilderLogs.toString());
 
     responseBuilderLogs.append(
         "\n Status Code: " + Optional.ofNullable(response.getStatusCode()).orElse(null));
@@ -69,7 +72,8 @@ public class CustomLogFilter implements Filter {
             .orElse("Null"));
     responseBuilderLogs.append(
         "\n Response Body: " + Optional.ofNullable(response.asString()).orElse(null));
-    System.out.println(responseBuilderLogs);
+//    log.info(responseBuilderLogs.toString());
+
 
     return response;
   }

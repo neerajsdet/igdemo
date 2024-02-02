@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d49154c3-8f3f-43a7-9266-6e6479afecd9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/utils/PropertiesHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/utils/PropertiesHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/rest/utils/CustomLogFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/CustomLogFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rest/utils/RestProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/RestProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/insurance/embadded/ReportApiTest.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/insurance/embadded/ReportApiTest.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/insurance/standalone/motor/PolicyApiTest.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/insurance/standalone/motor/PolicyApiTest.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
