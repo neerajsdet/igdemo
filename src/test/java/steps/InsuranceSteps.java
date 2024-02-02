@@ -1,6 +1,6 @@
 package steps;
 
-import api.ReqResUtil;
+import rest.utils.ReqResUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;

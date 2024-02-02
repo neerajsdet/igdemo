@@ -1,4 +1,4 @@
-package api;
+package rest.utils;
 
 import java.util.HashMap;
 import lombok.AccessLevel;

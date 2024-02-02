@@ -1,4 +1,4 @@
-package api;
+package rest.utils;
 
 import static io.restassured.RestAssured.config;
 

@@ -1,4 +1,4 @@
-package api;
+package rest.utils;
 
 
 import io.cucumber.datatable.DataTable;

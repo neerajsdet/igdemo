@@ -1,4 +1,4 @@
-package api;
+package rest.utils;
 
 
 import io.restassured.filter.Filter;
@@ -52,7 +52,7 @@ public class CustomLogFilter implements Filter {
     System.out.println(requestBuilderLogs);
 
     curlBuilderLogs.append(
-        "curl --location --request " + Optional.ofNullable(requestSpec.getMethod()).orElse("Null"));
+        "\n curl --location --request " + Optional.ofNullable(requestSpec.getMethod()).orElse("Null"));
     curlBuilderLogs.append(" '" + Optional.ofNullable(requestSpec.getURI()).orElse("Null") + "' ");
     for (Header eachHeader : requestSpec.getHeaders()) {
       curlBuilderLogs.append("\n --header '" + eachHeader.toString().replace("=", ":") + "'");

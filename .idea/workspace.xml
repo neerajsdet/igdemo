@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d49154c3-8f3f-43a7-9266-6e6479afecd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/reports/ScenarioUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/CustomLogFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steps/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/reports/ReportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/paytm/insurance/reports/ReportUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/RestProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/RestProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/insurance/embadded/EmbaddedReportApiTest.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/insurance/embadded/ReportApiTest.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/CustomLogFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/CustomLogFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ReqResUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/ReqResUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/RequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/RequestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/RestProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/RestProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/InsuranceSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/InsuranceSteps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +37,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1706782779" />
+                    <option name="lastUsedInstant" value="1706846503" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="framework" />
