@@ -48,7 +48,7 @@ public class CustomLogFilter implements Filter {
     requestBuilderLogs.append(
         "\n Body: " + Optional.ofNullable(requestSpec.getBody()).orElse("Null"));
     requestBuilderLogs.append(
-        "\n------------------------------------------------------------------\n");
+        "\n------------------------------------------------------------------");
     System.out.println(requestBuilderLogs);
 
     curlBuilderLogs.append(

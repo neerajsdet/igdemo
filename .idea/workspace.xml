@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d49154c3-8f3f-43a7-9266-6e6479afecd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/CustomLogFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/CustomLogFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/ReqResUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/ReqResUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/RequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/RequestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/RestProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/RestProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/steps/InsuranceSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/InsuranceSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rest/utils/CustomLogFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/utils/CustomLogFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +64,10 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Runner" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="TestNgRunner" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="paytm-insurance-api-automation" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Runner" />
+      <option name="MAIN_CLASS_NAME" value="runner.TestNgRunner" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -81,7 +77,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.Runner" />
+        <item itemvalue="TestNG.TestNgRunner" />
       </list>
     </recent_temporary>
   </component>
