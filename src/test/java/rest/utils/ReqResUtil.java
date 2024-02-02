@@ -6,16 +6,13 @@ import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.paytm.insurance.utils.CommonUtils;
-import org.paytm.insurance.utils.JsonUtil;
 import org.paytm.insurance.utils.PropertiesHelper;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
+import steps.Base;
 
 public class ReqResUtil {
-
   RequestData requestData = RequestData.builder().build();
-
   RestProcessor restProcessor = new RestProcessor();
 
 
@@ -32,7 +29,6 @@ public class ReqResUtil {
 
   public void setQueryParamsData(HashMap<String, String> queryParamsMap) {
     requestData.setQueryParams(queryParamsMap);
-
   }
 
 
@@ -59,8 +55,8 @@ public class ReqResUtil {
       hashMap.forEach((k, v) -> {
         if (v == null) {
           v = "";
-        } else if (CommonUtils.globalMap.containsKey(v)) {
-          v = CommonUtils.globalMap.get(v);
+        } else if (Base.globalDataMap.get(Thread.currentThread().getId()).containsKey(v)) {
+          v = Base.globalDataMap.get(Thread.currentThread().getId()).get(v);
         }
         Object jsonResponseValue = this.getValueFromResponse(response, k);
         String actualValue = jsonResponseValue == null ? "null" : jsonResponseValue.toString();

@@ -1,10 +1,11 @@
-package org.paytm.insurance.utils;
+package rest.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.FileReader;
 import java.util.HashMap;
 import lombok.SneakyThrows;
+import steps.Base;
 
 public class JsonUtil {
 
@@ -40,8 +41,8 @@ public class JsonUtil {
               jsonObject.add(key, null);
             } else if (value.trim().isEmpty()) {
               jsonObject.addProperty(key, "");
-            } else if (CommonUtils.globalMap.containsKey(value)) {
-              value = CommonUtils.globalMap.get(value);
+            } else if (Base.globalDataMap.get(Thread.currentThread().getId()).containsKey(value)) {
+              value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
               jsonObject.addProperty(key, value);
             } else {
               jsonObject.addProperty(key, value);

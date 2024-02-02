@@ -17,9 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 public class CustomLogFilter implements Filter {
 
-  private StringBuilder requestBuilderLogs;
-  private StringBuilder curlBuilderLogs;
-  private StringBuilder responseBuilderLogs;
+  private StringBuffer requestBuilderLogs;
+  private StringBuffer curlBuilderLogs;
+  private StringBuffer responseBuilderLogs;
 
 
   @SneakyThrows
@@ -28,9 +28,9 @@ public class CustomLogFilter implements Filter {
       FilterableResponseSpecification responseSpec, FilterContext ctx) {
     Response response = ctx.next(requestSpec, responseSpec);
 
-    requestBuilderLogs = new StringBuilder();
-    curlBuilderLogs = new StringBuilder();
-    responseBuilderLogs = new StringBuilder();
+    requestBuilderLogs = new StringBuffer();
+    curlBuilderLogs = new StringBuffer();
+    responseBuilderLogs = new StringBuffer();
 
     requestBuilderLogs.append(
         "\n Request method: " + Optional.ofNullable(requestSpec.getMethod()).orElse("Null"));
@@ -53,9 +53,9 @@ public class CustomLogFilter implements Filter {
         "\n------------------------------------------------------------------");
 //    log.info(requestBuilderLogs.toString());
 
-
     curlBuilderLogs.append(
-        "\n curl --location --request " + Optional.ofNullable(requestSpec.getMethod()).orElse("Null"));
+        "\n curl --location --request " + Optional.ofNullable(requestSpec.getMethod())
+            .orElse("Null"));
     curlBuilderLogs.append(" '" + Optional.ofNullable(requestSpec.getURI()).orElse("Null") + "' ");
     for (Header eachHeader : requestSpec.getHeaders()) {
       curlBuilderLogs.append("\n --header '" + eachHeader.toString().replace("=", ":") + "'");
@@ -73,7 +73,6 @@ public class CustomLogFilter implements Filter {
     responseBuilderLogs.append(
         "\n Response Body: " + Optional.ofNullable(response.asString()).orElse(null));
 //    log.info(responseBuilderLogs.toString());
-
 
     return response;
   }

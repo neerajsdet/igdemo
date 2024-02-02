@@ -2,13 +2,10 @@ package org.paytm.insurance.utils;
 
 import io.cucumber.datatable.DataTable;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class CommonUtils {
-
-  public static Map<String, String> globalMap = new LinkedHashMap<>();
 
 
   public static HashMap<String, HashMap<String, String>> getDataParamsMap(

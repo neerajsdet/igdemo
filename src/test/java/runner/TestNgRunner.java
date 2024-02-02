@@ -3,13 +3,12 @@ package runner;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.paytm.insurance.reports.ReportUtil;
-import org.paytm.insurance.utils.PropertiesHelper;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(
-    plugin = {"pretty","html:target/report/cucumber.html","json:target/report/cucumber.json"},
+    plugin = {"pretty", "html:target/report/cucumber.html", "json:target/report/cucumber.json"},
     features = {"src/test/resources/features/insurance"},
 //    tags = "@motor",
 //    tags = "@shop-insurance",
@@ -19,26 +18,18 @@ import org.testng.annotations.BeforeSuite;
 public class TestNgRunner extends AbstractTestNGCucumberTests {
 
 
-
-
-  @BeforeSuite
-  public void beforeSuite(){
-    String config = "src/test/resources/config/staging/config.properties";
-    String endpoints = "src/test/resources/endpoints/endpoint.properties";
-    PropertiesHelper.loadProperties(config,endpoints);
+  @Override
+  @DataProvider(parallel = false)
+  public Object[][] scenarios() {
+    return super.scenarios();
   }
 
 
   @AfterSuite
-  public void tearDown(){
+  public static void tearDown() {
     ReportUtil.generateWebReport();
     ReportUtil.generateEmailAbleReport();
   }
-
-
-
-
-
 
 
 }
