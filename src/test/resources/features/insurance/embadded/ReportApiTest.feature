@@ -9,20 +9,20 @@ Feature: Verify Insurance Embedded Report api, endpoint:v1/public/embedded/repor
       | h:sso_token                          | h:Content-Type   | merchantId    | reason   |
       | 337fb0f4-16e2-4e13-9a92-b01ac6272800 | application/json | <MERCHANT_ID> | <REASON> |
       Then perform the "POST" api call, verify response code 200 and below response data
-        | code                | merchant_id   |
-        | <EXP_RESPONSE_CODE> | <MERCHANT_ID> |
+        | code | merchant_id   |
+        | 200  | <MERCHANT_ID> |
 
     Examples:
-      | SCENARIO                          | EXP_RESPONSE_CODE | MERCHANT_ID | REASON                  |
-      | Reason is NOT_ELIGIBLE            | 200               | merchantId  | NOT_ELIGIBLE            |
-      | Reason is HIGHER_INSURANCE_AMOUNT | 200               | merchantId  | HIGHER_INSURANCE_AMOUNT |
-      | Reason is blank                   | 200               | merchantId  |                         |
-      | Reason is null                    | 200               | merchantId  | null                    |
-      | Reason is dummy value             | 200               | merchantId  | xxxxxx                  |
+      | SCENARIO                          | MERCHANT_ID | REASON                  |
+      | Reason is NOT_ELIGIBLE            | merchantId  | NOT_ELIGIBLE            |
+      | Reason is HIGHER_INSURANCE_AMOUNT | merchantId  | HIGHER_INSURANCE_AMOUNT |
+      | Reason is blank                   | merchantId  |                         |
+      | Reason is null                    | merchantId  | null                    |
+      | Reason is dummy value             | merchantId  | xxxxxx                  |
 
 
 
-  Scenario Outline: Validate the api for scenario - <SCENARIO>
+  Scenario Outline: Validate the api for negative scenario - <SCENARIO>
     Given set the request base url "insurance_url" and endpoint "embedded_report_api_endpoint"
     Given generate random alphanumeric string with length 15 and save as key "merchantId"
     Given set the request headers, query params and payload with json file name "embedded_report.json"
