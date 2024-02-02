@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
-
-
+@Slf4j
 public class PropertiesHelper {
   public static Properties properties = null;
 
@@ -54,9 +54,9 @@ public class PropertiesHelper {
         properties.putAll(childProperties);
       }
     } catch (IOException e) {
-//      log.error(e.getMessage());
+      System.out.println(e.getMessage());
     }
-//    log.info("Properties loaded successfully.");
+    System.out.println("Properties loaded successfully.");
   }
 
 
