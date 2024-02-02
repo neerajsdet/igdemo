@@ -1,11 +1,13 @@
 package rest.utils;
 
 import static io.restassured.RestAssured.config;
+import static io.restassured.RestAssured.given;
 
-import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.config.SSLConfig;
 import io.restassured.filter.Filter;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.paytm.insurance.reports.ScenarioUtil;
 
@@ -18,27 +20,24 @@ public class RestProcessor {
 
   public Response processApiRequest(String httpMethod, RequestData requestData) {
     Response response = null;
+    RequestSpecification requestSpecification = new RequestSpecBuilder()
+        .setBaseUri(requestData.getBaseUrl())
+        .addHeaders(requestData.getHeaders())
+        .addQueryParams(requestData.getQueryParams())
+        .setConfig(config().sslConfig(new SSLConfig().allowAllHostnames().relaxedHTTPSValidation()))
+        .addFilter(logFilter)
+        .build();
+
     switch (httpMethod) {
       case "GET":
-        response = RestAssured.given()
-            .baseUri(requestData.getBaseUrl())
-            .headers(requestData.getHeaders())
-            .queryParams(requestData.getQueryParams())
-            .config(
-                config().sslConfig(new SSLConfig().allowAllHostnames().relaxedHTTPSValidation()))
-            .filter(logFilter)
+        response = given().spec(requestSpecification)
             .request(httpMethod, requestData.getEndpoint())
             .thenReturn();
         break;
       case "POST":
-        response = RestAssured.given()
-            .baseUri(requestData.getBaseUrl())
-            .headers(requestData.getHeaders())
-            .queryParams(requestData.getQueryParams())
+      case "PUT":
+        response = given().spec(requestSpecification)
             .body(requestData.getPayload())
-            .config(
-                config().sslConfig(new SSLConfig().allowAllHostnames().relaxedHTTPSValidation()))
-            .filter(logFilter)
             .request(httpMethod, requestData.getEndpoint())
             .thenReturn();
         break;
