@@ -112,7 +112,7 @@
   <profile>
     <id>qa</id>
     <properties>
-      <environment>qa</environment>
+      <env>qa</env>
     </properties>
     <activation>
       <activeByDefault>false</activeByDefault>
@@ -120,7 +120,7 @@
     <build>
       <resources>
         <resource>
-          <directory>src/test/resources/config/qa</directory>
+          <directory>src/test/resources/profiles/qa</directory>
         </resource>
       </resources>
     </build>
@@ -128,7 +128,7 @@
     <profile>
       <id>stage</id>
       <properties>
-        <environment>stage</environment>
+        <env>stage</env>
       </properties>
       <activation>
         <activeByDefault>true</activeByDefault>
@@ -136,7 +136,7 @@
       <build>
         <resources>
           <resource>
-            <directory>src/test/resources/config/staging</directory>
+            <directory>src/test/resources/profiles/staging</directory>
           </resource>
         </resources>
       </build>
