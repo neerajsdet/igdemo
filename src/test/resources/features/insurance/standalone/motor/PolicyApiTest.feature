@@ -6,7 +6,7 @@ Feature: Verify Insurance Policy api, endpoint:/protection/recent-search/api/rs/
     Given set the request base url "motor_url" and endpoint "motor_policy_api_endpoint"
     Given set the request headers and query params
       | h:X-PIBPL-USER-SSO-TOKEN             | h:X-PIBPL-USER-WALLET-TOKEN          | qp:vehicleType | qp:limit |
-      | 1f4ef8d6-fddc-4a1c-af17-fc0e50659900 | 1f4ef8d6-fddc-4a1c-af17-fc0e50659900 | two_wheeler    | 3        |
+      | a8bb53db-50a4-452b-9bed-601f6d0a2800 | 1f4ef8d6-fddc-4a1c-af17-fc0e50659900 | two_wheeler    | 3        |
     Then perform the "GET" api call, verify response code 200 and below response data
       | [0].id | [0].model.name | [0].rto.city.popularityRank | [0].rto.city.name |
       | 16820  | Platina 110    | null                        | Mumbai            |

@@ -3,6 +3,7 @@ Feature: Verify Insurance Embedded Report api, endpoint:v1/public/embedded/repor
 
 
   Scenario Outline: Validate the api for scenario - <SCENARIO>
+    Given generate the sso token with mobile "9899946472", password "paytm@123" and save in global data with key "sso-token"
     Given set the request base url "insurance_url" and endpoint "embedded_report_api_endpoint"
     Given generate random alphanumeric string with length 15 and save as key "merchantId"
     Given set the request headers, query params and payload with json file name "embedded_report.json"
@@ -37,7 +38,5 @@ Feature: Verify Insurance Embedded Report api, endpoint:v1/public/embedded/repor
       | Invalid sso_token    | 412               | Invalid Sso Token/Unable to Fetch Cust Id | merchantId  | xxx-yyyy-zzzz                        |
       | Merchant id is null  | 412               | Mandatory Params are missing              | null        | 337fb0f4-16e2-4e13-9a92-b01ac6272800 |
       | Merchant id is blank | 412               | Mandatory Params are missing              |             | 337fb0f4-16e2-4e13-9a92-b01ac6272800 |
-
-
 
 

@@ -32,15 +32,20 @@ public class ReqResUtils {
   }
 
 
+  public void setFormsData(HashMap<String, String> formParamsMap) {
+    requestData.setFormParams(formParamsMap);
+  }
+
   public void updateJsonAndSetPayload(String jsonFileName, HashMap<String, String> fileParamMap) {
     String payload = JsonUtils.updateJsonFile(jsonFileName, fileParamMap);
     requestData.setPayload(payload);
   }
 
 
-  public void processRequestAndVerifyResponseCode(String httpMethod, int expectedResponseCode) {
+  public Response processRequestAndVerifyResponseCode(String httpMethod, int expectedResponseCode) {
     Response response = restProcessor.processApiRequest(httpMethod, requestData);
     Assert.assertEquals(response.getStatusCode(), expectedResponseCode);
+    return response;
   }
 
 
