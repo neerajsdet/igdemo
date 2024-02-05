@@ -7,7 +7,7 @@ Feature: Verify Insurance Embedded Report api, endpoint:v1/public/embedded/repor
     Given generate random alphanumeric string with length 15 and save as key "merchantId"
     Given set the request headers, query params and payload with json file name "embedded_report.json"
       | h:sso_token                          | h:Content-Type   | merchantId    | reason   |
-      | 337fb0f4-16e2-4e13-9a92-b01ac6272800 | application/json | <MERCHANT_ID> | <REASON> |
+      | e0008293-6bb7-494d-b1f2-8c6798a42800 | application/json | <MERCHANT_ID> | <REASON> |
       Then perform the "POST" api call, verify response code 200 and below response data
         | code | merchant_id   |
         | 200  | <MERCHANT_ID> |
