@@ -63,7 +63,7 @@ public class CustomLogFilter implements Filter {
     curlBuilderLogs.append(
         "\n --data-raw '" + Optional.ofNullable(requestSpec.getBody()).orElse("Null") + "'\n");
     curlBuilderLogs.append("------------------------------------------------------------------");
-//    log.info(curlBuilderLogs.toString());
+    log.info(curlBuilderLogs.toString());
 
     responseBuilderLogs.append(
         "\n Status Code: " + Optional.ofNullable(response.getStatusCode()).orElse(null));

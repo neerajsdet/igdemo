@@ -20,6 +20,7 @@ public class RequestData {
   private HashMap<String, String> headers;
   private HashMap<String, String> queryParams;
   private HashMap<String, String> pathParams;
+  private HashMap<String, String> formParams;
   private RequestData() {
   }
 
