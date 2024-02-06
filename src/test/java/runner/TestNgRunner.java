@@ -16,8 +16,8 @@ import org.testng.annotations.Test;
         plugin = {"pretty", "html:target/report/cucumber.html", "json:target/report/cucumber.json"},
         features = {"src/test/resources/features/insurance"},
 //      tags = "@motor",
-//        tags = "@shop-insurance",
-      tags = "@shop-insurance or @motor",
+        tags = "@shop-insurance",
+//      tags = "@shop-insurance or @motor",
         glue = {"steps"}
 )
 public class TestNgRunner extends AbstractTestNGCucumberTests {
