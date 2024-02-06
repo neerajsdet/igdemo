@@ -25,10 +25,13 @@ public class RestProcessor {
                 .setConfig(config().sslConfig(new SSLConfig().allowAllHostnames().relaxedHTTPSValidation()))
                 .addFilter(logFilter)
                 .build();
-        if (!requestData.getHeaders().isEmpty())
+        if (requestData.getHeaders()!=null && !requestData.getHeaders().isEmpty())
             requestSpecification.headers(requestData.getHeaders());
 
-        if (!requestData.getFormParams().isEmpty()) {
+        if (requestData.getQueryParams()!=null && !requestData.getQueryParams().isEmpty())
+            requestSpecification.queryParams(requestData.getQueryParams());
+
+        if (requestData.getFormParams()!=null && !requestData.getFormParams().isEmpty()) {
             requestSpecification.formParams(requestData.getFormParams());
         } else if (requestData.getPayload() != null) {
             requestSpecification.body(requestData.getPayload());
@@ -39,7 +42,7 @@ public class RestProcessor {
                 .thenReturn();
 
         log.info("Received response for url: {}, request payload: {}, status code: {}, response: {}",
-                requestData.getBaseUrl(),
+                requestData.getBaseUrl() + requestData.getEndpoint(),
                 requestData.getPayload(),
                 response.statusCode(),
                 response.body().asString());
