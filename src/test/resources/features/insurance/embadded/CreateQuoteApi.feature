@@ -1,4 +1,4 @@
-@shop-insurance
+@shop
 Feature: Verify Create Quote API, endpoint: /v1/public/embedded/createQuote
 
   Scenario Outline: Validate create quote api - success
@@ -12,4 +12,4 @@ Feature: Verify Create Quote API, endpoint: /v1/public/embedded/createQuote
 
     Examples:
       | lending_pid |
-      | 88          |
+      | 89          |
