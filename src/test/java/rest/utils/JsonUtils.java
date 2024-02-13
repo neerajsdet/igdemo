@@ -38,14 +38,29 @@ public class JsonUtils {
       fileParamsMap.forEach(
           (key, value) -> {
             if (value == null) {
+              if (key.contains("int:")) {
+                key = key.replace("int:", "");
+              }
               jsonObject.add(key, null);
             } else if (value.trim().isEmpty()) {
+              if (key.contains("int:")) {
+                key = key.replace("int:", "");
+              }
               jsonObject.addProperty(key, "");
-            } else if (Base.globalDataMap.get(Thread.currentThread().getId()).containsKey(value)) {
+            } else if (Base.globalDataMap.get(Thread.currentThread().getId())
+                .containsKey(value)) {
               value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
-              jsonObject.addProperty(key, value);
+              if (key.contains("int:")) {
+                jsonObject.addProperty(key, Integer.parseInt(value));
+              } else {
+                jsonObject.addProperty(key, value);
+              }
             } else {
-              jsonObject.addProperty(key, value);
+              if (key.contains("int:")) {
+                jsonObject.addProperty(key, Integer.parseInt(value));
+              } else {
+                jsonObject.addProperty(key, value);
+              }
             }
           }
       );

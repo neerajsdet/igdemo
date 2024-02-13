@@ -1,0 +1,27 @@
+{
+  "product_tag": "mca",
+  "vertical": "Lending",
+  "lending_pid": 88,
+  "cat_pid": 6876897689,
+  "lender": "ABFL",
+  "loan_type": "New",
+  "journey": "onboarding",
+  "lead_id": "7a9c4baf-354e-4444-8c07-137d935e062b",
+  "cust_id": 87878,
+  "loan_info": {
+    "amount": 10000,
+    "edi": 10333,
+    "interest_rate": 6.5,
+    "loan_type": "New",
+    "tenure": 12
+  },
+  "cust_info": {
+    "name": "Yash Jain",
+    "dob": "12-12-1999",
+    "phone": 9090909090,
+    "assisted": true,
+    "lat_long": "",
+    "location": 110011,
+    "email": "temp.email@gmail.com"
+  }
+}
