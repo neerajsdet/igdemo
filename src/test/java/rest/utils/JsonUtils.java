@@ -51,13 +51,15 @@ public class JsonUtils {
                 .containsKey(value)) {
               value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
               if (key.contains("int:")) {
+                key = key.replace("int:", "");
                 jsonObject.addProperty(key, Integer.parseInt(value));
               } else {
                 jsonObject.addProperty(key, value);
               }
             } else {
               if (key.contains("int:")) {
-                jsonObject.addProperty(key, Integer.parseInt(value));
+                key = key.replace("int:", "");
+                jsonObject.addProperty(key, Integer.valueOf(value));
               } else {
                 jsonObject.addProperty(key, value);
               }
