@@ -52,6 +52,11 @@ public class InsuranceSteps extends Base {
         Base.reqResUtilMap.get(threadId).processRequestAndVerifyResponseCode(httpMethod, expectedResponseCode);
     }
 
+    @When("perform the {string} api call and validate response code {int} and get the value of {string} from response and save in global data with key {string}")
+    public void performApiCallAndValidateResponseCode(String httpMethod, int expectedResponseCode, String jsonPathKeys, String globalDataKeys) {
+        Base.reqResUtilMap.get(threadId).processRequestAndVerifyResponseCodeAndGetValues(httpMethod, expectedResponseCode, jsonPathKeys, globalDataKeys);
+    }
+
 
     @When("perform the {string} api call")
     public void performApiCall(String httpMethod) {

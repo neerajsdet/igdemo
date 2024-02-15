@@ -50,6 +50,20 @@ public class ReqResUtils {
         return response;
     }
 
+    public void processRequestAndVerifyResponseCodeAndGetValues(String httpMethod, int expectedResponseCode, String jsonPathKeys, String globalKeys) {
+        Response response = restProcessor.processApiRequest(httpMethod, requestData);
+        Assert.assertEquals(response.getStatusCode(), expectedResponseCode);
+        String[] jsonKeys = jsonPathKeys.split(",");
+        String[] globalDataKeys = globalKeys.split(",");
+        Assert.assertEquals(globalDataKeys.length, jsonKeys.length,
+            "Json keys and global data keys are not equal");
+        for (int i = 0; i < jsonKeys.length; i++) {
+            Base.globalDataMap.get(Thread.currentThread().getId()).put(globalDataKeys[i], response.jsonPath().get(jsonKeys[i]).toString());
+        }
+    }
+
+
+
 
     public void processRequestAndVerifyResponse(String httpMethod, int expectedResponseCode,
                                                 DataTable dataTable) {
