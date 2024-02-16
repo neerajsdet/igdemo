@@ -1,4 +1,4 @@
-@shop-insurance
+@shop-ins
 Feature: Verify Policy Details API, endpoint: /protection/v1/public/policy/details
 
   Scenario: Validate policy details api - success

@@ -34,45 +34,6 @@ public class JsonUtils {
   }
 
 
-//  public static String updateJsonFile(String jsonFileName, HashMap<String, String> fileParamsMap) {
-//    JsonObject jsonObject = getJsonObjectOfJsonFile(jsonFileName);
-//    if (!(fileParamsMap == null)) {
-//      fileParamsMap.forEach(
-//          (key, value) -> {
-//            if (value == null) {
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//              }
-//              jsonObject.add(key, null);
-//            } else if (value.trim().isEmpty()) {
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//              }
-//              jsonObject.addProperty(key, "");
-//            } else if (Base.globalDataMap.get(Thread.currentThread().getId())
-//                .containsKey(value)) {
-//              value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//                jsonObject.addProperty(key, Integer.parseInt(value));
-//              } else {
-//                jsonObject.addProperty(key, value);
-//              }
-//            } else {
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//                jsonObject.addProperty(key, Integer.valueOf(value));
-//              } else {
-//                jsonObject.addProperty(key, value);
-//              }
-//            }
-//          }
-//      );
-//    }
-//    return jsonObject.toString();
-//  }
-
-
   public static String updateJsonFile(String jsonFileName, HashMap<String, String> fileParamsMap) {
     JsonObject[] jsonObject = {getJsonObjectOfJsonFile(jsonFileName)};
     if (!(fileParamsMap == null)) {
@@ -95,7 +56,6 @@ public class JsonUtils {
                 key = key.replace("int:", "");
                 jsonObject[0].addProperty(key, Integer.parseInt(value));
               } else {
-//                jsonObject.addProperty(key, value);
                 jsonObject[0] = updateJsonPathValue(jsonObject[0], key, value);
               }
             } else {
@@ -103,7 +63,6 @@ public class JsonUtils {
                 key = key.replace("int:", "");
                 jsonObject[0].addProperty(key, Integer.valueOf(value));
               } else {
-//                jsonObject.addProperty(key, value);
                 updateJsonPathValue(jsonObject[0], key, value);
               }
             }
