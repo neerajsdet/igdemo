@@ -24,3 +24,13 @@ Feature: Verify shop insurance E2E flow
     Then perform the "POST" api call, verify response code 200 and below response data
       | body.resultInfo.resultMsg |
       | Success                   |
+
+
+    Given set the request base url "insurance_url" and endpoint "policy_details_api_endpoint"
+    Given set the request headers and query params
+      | h:Content-Type   | h:sso_token | qp:channel | qp:order_id |
+      | application/json | sso_token   | androidapp | order_id    |
+    Then perform the "GET" api call, verify response code 200 and below response data
+      | title              | my_ins_details[0].plan_details.status | my_ins_details[0].plan_details.sum_insured |
+      | Manage My Policies | success                               | 2500000                                    |
+
