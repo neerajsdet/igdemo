@@ -1,0 +1,140 @@
+{
+  "completeAddress": {
+    "addressId": "",
+    "address1": "Test",
+    "address2": "Insurance",
+    "city": "Noida",
+    "state": "Uttar Pradesh",
+    "pin": "201301",
+    "country": "",
+    "id": "800000003335921752"
+  },
+  "customer_name": "vinod bhardwaj",
+  "email": "vinod.sharma@gmail.com",
+  "phone": "9899946472",
+  "remarks": "12345",
+  "shop_address__id": "800000003335921752",
+  "shop_name": "toy shop",
+  "tnc": true,
+  "extra": {
+    "tncUrl": "https://cif.paytm.com/kyc/tnc/get/150001844",
+    "merchantDetails": {
+      "code": 200,
+      "status": true,
+      "category": "Automobiles and Vehicles",
+      "subCategory": "Authorized Service Centre",
+      "planType": "SHOP_INSURANCE",
+      "shopName": "bhbah",
+      "ownerName": "bharat",
+      "phoneNumber": "7771116511",
+      "address": {
+        "zipcode": "201303",
+        "country": "India",
+        "address3": "Sector 6",
+        "address2": "Near B 121",
+        "city": "Gautam Buddha Nagar",
+        "address1": "Rishi",
+        "state": "Uttar Pradesh"
+      },
+      "merchantId": "SixLZX59901562375729",
+      "eligible": true
+    },
+    "insuranceType": 144,
+    "productDetails": {
+      "title": "25 Lakh",
+      "is_rupee_symbol": true,
+      "config_key": 1235131985,
+      "plan_id": 1235131985,
+      "plan_object": {
+        "premium": "3249",
+        "display_premium": 3249,
+        "is_rupee_symbol": true,
+        "isRecommended": false,
+        "premium_title": "Premium",
+        "premium_subtext": "plus GST",
+        "input_form": false,
+        "tenure": "1 year",
+        "tenure_title": "Tenure",
+        "plan_details": {
+          "covers": {
+            "heading": "What is covered?",
+            "data": [{
+              "type": "Sum Insured",
+              "text": "Get indemnity cover for the stocks, furnitures& fixtures and other contents in your shop upto a sum insured of ₹25 Lakhs.",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/Covered1.png"
+            }, {
+              "type": "Fire & Allied Perils",
+              "text": "Coverage against loss due to fire, explosion and implosions",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/Covered2.png"
+            }, {
+              "type": "Natural Calamities",
+              "text": "Coverage against loss/damage due to earthquake, lightning, storm, cyclone, typhoon, tsunami, flood, inundation",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/Covered3.png"
+            }, {
+              "type": "Malicious Damage",
+              "text": "Coverage against loss/damage due to riots, strikes or other malicious damage",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/Covered4.png"
+            }, {
+              "type": "Burglary",
+              "text": "Cover against risk of Burglary*",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/Covered5.png"
+            }, {
+              "type": "Accidental Damage",
+              "text": "Coverage against loss due to bursting and/or overflowing of water tanks, apparatus and pipes & leakage from sprinkler installations",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/Covered6.png"
+            }, {
+              "type": "Impact Damage",
+              "text": "Coverage against loss/damage caused by impact of or collision of any vehicle, animal, falling trees, aircraft, wall etc.",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/Covered7.png"
+            }]
+          },
+          "exclusions": {
+            "heading": "What is not covered?",
+            "data": [{
+              "type": "Shops Located in Basement",
+              "text": "Cover not available for shops located in basement / damage to shop contents in basement",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/NotCovered1.png"
+            }, {
+              "type": "Non-RCC Shops",
+              "text": "Cover not available for kutcha (non-RCC) shops / Damage to content of kutcha shops",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/NotCovered2.png"
+            }, {
+              "type": "No Claim",
+              "text": "No claims reported in last 3 years",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/NotCovered3.png"
+            }, {
+              "type": "Theft",
+              "text": "Loss due to theft",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/NotCovered4.png"
+            }]
+          },
+          "claims": {
+            "heading": "Claim Process",
+            "data": [{
+              "type": "Claim intimation",
+              "text": "Contact the insurer at toll-free 1800-258-5956 with your policy reference or Email at hello@godigit.com with claim and policy details.",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/ClaimProcess1.png"
+            }, {
+              "type": "Claim registration",
+              "text": "The insurer will send a self-inspection link for uploading photos and videos of the damage, which will be assessed, possibly involving a loss assessor.",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/ClaimProcess2.png"
+            }, {
+              "type": "Claim settlement",
+              "text": "Upon claim verification, the payment will be processed through NEFT.",
+              "img_url": "https://insurance-webappsstatic.paytminsurance.co.in/icons/ClaimProcess3.png"
+            }]
+          }
+        }
+      },
+      "product_extra_info": {},
+      "tncCallBackInfo": {},
+      "isPreSelected": false,
+      "amount": 2500000
+    },
+    "policyUrl": "v1/public/standalone/getuserdetails?insurance_type=144",
+    "insuranceImageUrl": "https://insurance-webappsstatic.paytminsurance.co.in/icons/newGoDigitlogo.png",
+    "isApp": true,
+    "channelStr": "?child_site_id=1&site_id=1&client=androidapp&version=&native_withdraw=1&deviceIdentifier=OnePlus-CPH2487-8461671299cbd568"
+  },
+  "userAddress": "Test,Insurance,201301,Noida,Uttar Pradesh"
+}

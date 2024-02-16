@@ -41,11 +41,10 @@ public class RestProcessor {
                 .request(httpMethod, requestData.getEndpoint())
                 .thenReturn();
 
-        log.info("Received response for url: {}, request payload: {}, status code: {}, response: {}",
+        log.info("Request Details -  url: {}, request payload: {}",
                 requestData.getBaseUrl() + requestData.getEndpoint(),
-                requestData.getPayload(),
-                response.statusCode(),
-                response.body().asString());
+                requestData.getPayload());
+        log.info("Response - status code: {}, Response: {}", response.statusCode(), response.body().asString());
 
         if (logFilter instanceof CustomLogFilter) {
             CustomLogFilter customLogFilter = (CustomLogFilter) logFilter;

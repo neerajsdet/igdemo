@@ -1,4 +1,4 @@
-@shop
+
 Feature: Verify Create Quote API, endpoint: /v1/public/embedded/createQuote
 
   Scenario Outline: Validate create quote api - success

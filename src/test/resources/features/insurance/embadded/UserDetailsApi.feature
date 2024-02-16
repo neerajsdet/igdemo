@@ -1,4 +1,4 @@
-@shop-insurance
+@shop-ins
 Feature: Verify User Details API, endpoint: /v2/public/standalone/getuserdetails
 
   Scenario: Validate user details api - success

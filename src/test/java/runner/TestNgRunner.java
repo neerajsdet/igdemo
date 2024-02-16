@@ -13,37 +13,37 @@ import org.testng.annotations.Test;
 
 
 @CucumberOptions(
-        plugin = {"pretty", "html:target/report/cucumber.html", "json:target/report/cucumber.json"},
-        features = {"src/test/resources/features/insurance"},
-      tags = "@shop",
-        glue = {"steps"}
+    plugin = {"pretty", "html:target/report/cucumber.html", "json:target/report/cucumber.json"},
+    features = {"src/test/resources/features/insurance"},
+    tags = "@shop-ins-e2e",
+    glue = {"steps"}
 )
 public class TestNgRunner extends AbstractTestNGCucumberTests {
 
 
-    @Override
-    @DataProvider(parallel = false)
-    public Object[][] scenarios() {
-        return super.scenarios();
-    }
+  @Override
+  @DataProvider(parallel = false)
+  public Object[][] scenarios() {
+    return super.scenarios();
+  }
 
 
-    @Test(
-            groups = "cucumber",
-            description = "Runs Cucumber Scenarios",
-            dataProvider = "scenarios",
-            retryAnalyzer = Retry.class
-    )
-    public void runScenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
-        super.runScenario(pickleWrapper, featureWrapper);
-    }
+  @Test(
+      groups = "cucumber",
+      description = "Runs Cucumber Scenarios",
+      dataProvider = "scenarios",
+      retryAnalyzer = Retry.class
+  )
+  public void runScenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
+    super.runScenario(pickleWrapper, featureWrapper);
+  }
 
 
-    @AfterSuite
-    public static void tearDown() {
-        ReportUtils.generateWebReport();
-        ReportUtils.generateEmailAbleReport();
-    }
+  @AfterSuite
+  public static void tearDown() {
+    ReportUtils.generateWebReport();
+    ReportUtils.generateEmailAbleReport();
+  }
 
 
 }
