@@ -30,7 +30,7 @@ public class InsuranceSteps extends Base {
   }
 
 
-  @Given("set the request headers and query params")
+  @Given("set the request headers, query params")
   public void updateParams(DataTable dataTable) {
     HashMap<String, HashMap<String, String>> map = Base.reqResUtilMap.get(threadId)
         .getDataParamsMap(dataTable);

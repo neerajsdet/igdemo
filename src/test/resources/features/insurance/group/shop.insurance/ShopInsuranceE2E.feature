@@ -4,30 +4,24 @@ Feature: Verify shop insurance E2E flow up to policy details
   Scenario: Shop Insurance E2E flow verification
     Given generate the sso token with mobile "7777764102", password "paytm@123" and save in global data with key "sso_token"
 
-    Given set the request base url "insurance_bff_url" and endpoint "shop_ins_product_details_endpoint"
-    Given set the request headers, query params and payload with json file name "shop_product_details.json"
-      | h:Content-Type   | h:sso_token | h:merchantid         | qp:product     | qp:journey |
-      | application/json | sso_token   | SixLZX59901562375729 | shop-insurance | group      |
-    Then perform the "GET" api call 5 times, verify response code 200 and below response data
-      | title          | insurer_name |
-      | Shop Insurance | Go Digit     |
-
     Given set the request base url "insurance_bff_url" and endpoint "shop_ins_state_schema_endpoint"
-    Given set the request headers, query params and payload with json file name "shop_state_schema_lending.json"
+    Given set the request headers, query params
       | h:Content-Type   | h:sso_token | qp:product     | qp:journey |
       | application/json | sso_token   | shop-insurance | group      |
     Then perform the "POST" api call 5 times, verify response code 201 and below response data
       | schemaMeta.screenName |
       | landing_page          |
 
-    Given set the request base url "insurance_bff_url" and endpoint "shop_ins_product_details_submit_endpoint"
-    Given set the request headers, query params and payload with json file name "shop_product_details.json"
-      | h:Content-Type   | h:sso_token | h:merchantid         | h:authorization                                                        | qp:product     | qp:journey | qp:state        |
-      | application/json | sso_token   | SixLZX59901562375729 | Basic dW1wLXN0YWdpbmc6Y2FiOGQxOTQtNWYwNy00YzRlLWJmMGEtY2EzOGMxM2M1Zm1v | shop-insurance | group      | product-details |
-    Then perform the "POST" api call 5 times and validate response code 201
+    Given set the request base url "insurance_bff_url" and endpoint "shop_ins_product_details_endpoint"
+    Given set the request headers, query params
+      | h:Content-Type   | h:sso_token | h:merchantid         | qp:product     | qp:journey |
+      | application/json | sso_token   | SixLZX59901562375729 | shop-insurance | group      |
+    Then perform the "GET" api call 5 times, verify response code 200 and below response data
+      | title          | insurer_name |
+      | Shop Insurance | Go Digit     |
 
     Given set the request base url "insurance_bff_url" and endpoint "shop_ins_bff_submit_endpoint"
-    Given set the request headers, query params and payload with json file name "shop_state_schema_proposal.json"
+    Given set the request headers, query params and payload with json file name "shop_landing_page.json"
       | h:Content-Type   | h:sso_token | h:authorization                                                        | qp:product     | qp:journey | qp:state        |
       | application/json | sso_token   | Basic dW1wLXN0YWdpbmc6Y2FiOGQxOTQtNWYwNy00YzRlLWJmMGEtY2EzOGMxM2M1Zm1v | shop-insurance | group      | product-details |
     Then perform the "POST" api call 5 times, verify response code 201 and below response data
@@ -49,7 +43,7 @@ Feature: Verify shop insurance E2E flow up to policy details
       | Success                   |
 
     Given set the request base url "insurance_url" and endpoint "policy_details_api_endpoint"
-    Given set the request headers and query params
+    Given set the request headers, query params
       | h:Content-Type   | h:sso_token | qp:channel | qp:order_id |
       | application/json | sso_token   | androidapp | order_id    |
     Then perform the "GET" api call 5 times, verify response code 200 and below response data
