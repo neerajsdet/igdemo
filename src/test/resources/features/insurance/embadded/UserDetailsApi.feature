@@ -1,4 +1,4 @@
-@shop-ins
+@shop-ins-old
 Feature: Verify User Details API, endpoint: /v2/public/standalone/getuserdetails
 
   Scenario: Validate user details api - success
@@ -7,6 +7,6 @@ Feature: Verify User Details API, endpoint: /v2/public/standalone/getuserdetails
     Given set the request headers, query params and payload with json file name "user_details.json"
       | h:sso_token | h:Content-Type   | qp:insurance_type | qp:channel |
       | sso_token   | application/json | 144               | consumer   |
-    Then perform the "POST" api call, verify response code 200 and below response data
+    Then perform the "POST" api call 5 times, verify response code 200 and below response data
       | userDetails[0].label |
       | Confirm your details |

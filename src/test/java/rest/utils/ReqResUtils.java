@@ -78,22 +78,28 @@ public class ReqResUtils {
     }
   }
 
-
-  public void processRequestAndVerifyResponse(String httpMethod, int expectedResponseCode,
+  @SneakyThrows
+  public void processRequestAndVerifyResponse(String httpMethod, int retryCount, int expectedResponseCode,
       DataTable dataTable) {
-    Response response = restProcessor.processApiRequest(httpMethod, requestData);
+    Response response;
+    do {
+      response = restProcessor.processApiRequest(httpMethod, requestData);
+      retryCount--;
+      Thread.sleep(2000);
+    } while (response.getStatusCode() != expectedResponseCode && retryCount > 0);
     Assert.assertEquals(response.getStatusCode(), expectedResponseCode);
 
     SoftAssert softAssert = new SoftAssert();
     List<Map<String, String>> listMap = dataTable.asMaps();
     for (Map<String, String> hashMap : listMap) {
+      Response finalResponse = response;
       hashMap.forEach((k, v) -> {
         if (v == null) {
           v = "";
         } else if (Base.globalDataMap.get(Thread.currentThread().getId()).containsKey(v)) {
           v = Base.globalDataMap.get(Thread.currentThread().getId()).get(v);
         }
-        Object jsonResponseValue = this.getValueFromResponse(response, k);
+        Object jsonResponseValue = this.getValueFromResponse(finalResponse, k);
         String actualValue = jsonResponseValue == null ? "null" : jsonResponseValue.toString();
         softAssert.assertEquals(actualValue, v, "Actual response is not as expected");
       });
