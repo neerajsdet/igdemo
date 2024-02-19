@@ -39,11 +39,11 @@ public class InsuranceSteps extends Base {
   }
 
 
-  @When("perform the {string} api call, verify response code {int} and below response data")
-  public void performApiCallAndValidateResponseData(String httpMethod, int expectedResponseCode,
+  @When("perform the {string} api call {int} times, verify response code {int} and below response data")
+  public void performApiCallAndValidateResponseData(String httpMethod, int retryCount, int expectedResponseCode,
       DataTable dataTable) {
     Base.reqResUtilMap.get(threadId)
-        .processRequestAndVerifyResponse(httpMethod, expectedResponseCode, dataTable);
+        .processRequestAndVerifyResponse(httpMethod, retryCount, expectedResponseCode, dataTable);
   }
 
 
