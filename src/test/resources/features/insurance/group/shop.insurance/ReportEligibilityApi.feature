@@ -34,3 +34,6 @@ Feature: Verify Report Eligibility API, endpoint: /lending-distribution-bff/insu
       | scenario        | reason | message     |
       | reason is null  | null   | Bad Request |
       | reason is blank |        | Bad Request |
+
+
+
