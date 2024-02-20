@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 @CucumberOptions(
     plugin = {"pretty", "html:target/report/cucumber.html", "json:target/report/cucumber.json"},
     features = {"src/test/resources/features/insurance"},
-    tags = "@shop_ins",
+    tags = "@shop-ins-e2e",
     glue = {"steps"}
 )
 public class TestNgRunner extends AbstractTestNGCucumberTests {

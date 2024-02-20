@@ -1,4 +1,4 @@
-@shop_ins
+@shop-ins
 Feature: Validate Policy Listing API, endpoint: /v1/public/policy/listing
   
   
