@@ -43,27 +43,33 @@ public class JsonUtils {
               if (key.contains("int:")) {
                 key = key.replace("int:", "");
               }
-              jsonObject[0].add(key, null);
+              jsonObject[0] = updateJsonPathValue(jsonObject[0], key, null);
             } else if (value.trim().isEmpty()) {
               if (key.contains("int:")) {
                 key = key.replace("int:", "");
               }
-              jsonObject[0].addProperty(key, "");
+              jsonObject[0] = updateJsonPathValue(jsonObject[0], key, "");
             } else if (Base.globalDataMap.get(Thread.currentThread().getId())
                 .containsKey(value)) {
               value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
               if (key.contains("int:")) {
                 key = key.replace("int:", "");
-                jsonObject[0].addProperty(key, Integer.parseInt(value));
+                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Integer.valueOf(value));
+              } else if(key.contains("bool:")) {
+                key = key.replace("bool:", "");
+                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Boolean.valueOf(value));
               } else {
                 jsonObject[0] = updateJsonPathValue(jsonObject[0], key, value);
               }
             } else {
               if (key.contains("int:")) {
                 key = key.replace("int:", "");
-                jsonObject[0].addProperty(key, Integer.valueOf(value));
-              } else {
-                updateJsonPathValue(jsonObject[0], key, value);
+                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Integer.valueOf(value));
+              } else if(key.contains("bool:")) {
+                key = key.replace("bool:", "");
+                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Boolean.valueOf(value));
+              }else {
+                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, value);
               }
             }
           }
@@ -79,5 +85,7 @@ public class JsonUtils {
     documentContext.set(jsonPathKey, value);
     return new Gson().fromJson(documentContext.jsonString(), JsonObject.class);
   }
+
+
 
 }
