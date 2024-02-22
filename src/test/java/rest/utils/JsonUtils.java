@@ -34,49 +34,7 @@ public class JsonUtils {
   }
 
 
-//  public static String updateJsonFile(String jsonFileName, HashMap<String, String> fileParamsMap) {
-//    JsonObject[] jsonObject = {getJsonObjectOfJsonFile(jsonFileName)};
-//    if (!(fileParamsMap == null)) {
-//      fileParamsMap.forEach(
-//          (key, value) -> {
-//            if (value == null) {
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//              }
-//              jsonObject[0] = updateJsonPathValue(jsonObject[0], key, null);
-//            } else if (value.trim().isEmpty()) {
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//              }
-//              jsonObject[0] = updateJsonPathValue(jsonObject[0], key, "");
-//            } else if (Base.globalDataMap.get(Thread.currentThread().getId())
-//                .containsKey(value)) {
-//              value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Integer.valueOf(value));
-//              } else if(key.contains("bool:")) {
-//                key = key.replace("bool:", "");
-//                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Boolean.valueOf(value));
-//              } else {
-//                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, value);
-//              }
-//            } else {
-//              if (key.contains("int:")) {
-//                key = key.replace("int:", "");
-//                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Integer.valueOf(value));
-//              } else if(key.contains("bool:")) {
-//                key = key.replace("bool:", "");
-//                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, Boolean.valueOf(value));
-//              }else {
-//                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, value);
-//              }
-//            }
-//          }
-//      );
-//    }
-//    return jsonObject[0].toString();
-//  }
+
 
   public static String updateJsonFile(String jsonFileName, HashMap<String, String> fileParamsMap) {
     final JsonObject[] jsonObject = {getJsonObjectOfJsonFile(jsonFileName)};
