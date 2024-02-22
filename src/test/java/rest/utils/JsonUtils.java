@@ -34,44 +34,52 @@ public class JsonUtils {
   }
 
 
+
+
   public static String updateJsonFile(String jsonFileName, HashMap<String, String> fileParamsMap) {
-    JsonObject[] jsonObject = {getJsonObjectOfJsonFile(jsonFileName)};
-    if (!(fileParamsMap == null)) {
-      fileParamsMap.forEach(
-          (key, value) -> {
-            if (value == null) {
-              if (key.contains("int:")) {
-                key = key.replace("int:", "");
-              }
-              jsonObject[0].add(key, null);
-            } else if (value.trim().isEmpty()) {
-              if (key.contains("int:")) {
-                key = key.replace("int:", "");
-              }
-              jsonObject[0].addProperty(key, "");
-            } else if (Base.globalDataMap.get(Thread.currentThread().getId())
-                .containsKey(value)) {
-              value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
-              if (key.contains("int:")) {
-                key = key.replace("int:", "");
-                jsonObject[0].addProperty(key, Integer.parseInt(value));
-              } else {
-                jsonObject[0] = updateJsonPathValue(jsonObject[0], key, value);
-              }
-            } else {
-              if (key.contains("int:")) {
-                key = key.replace("int:", "");
-                jsonObject[0].addProperty(key, Integer.valueOf(value));
-              } else {
-                updateJsonPathValue(jsonObject[0], key, value);
-              }
-            }
-          }
-      );
+    final JsonObject[] jsonObject = {getJsonObjectOfJsonFile(jsonFileName)};
+    if (fileParamsMap != null) {
+      fileParamsMap.forEach((key, value) -> {
+        String type = "";
+        if (key.contains("int:")) {
+          key = key.replace("int:", "");
+          type = "int";
+        } else if (key.contains("bool:")) {
+          key = key.replace("bool:", "");
+          type = "bool";
+        }
+
+        if (Base.globalDataMap.get(Thread.currentThread().getId()).containsKey(value)) {
+          value = Base.globalDataMap.get(Thread.currentThread().getId()).get(value);
+        }
+
+        jsonObject[0] = updateJsonPathValueWithType(jsonObject[0], key, value, type);
+      });
     }
     return jsonObject[0].toString();
   }
 
+
+  private static JsonObject updateJsonPathValueWithType(JsonObject jsonObject, String jsonPathKey, String value, String type) {
+    Object finalValue;
+    if (value == null) {
+      finalValue = null;
+    } else if (value.trim().isEmpty()) {
+      finalValue = "";
+    } else {
+      switch (type) {
+        case "int":
+          finalValue = Integer.valueOf(value);
+          break;
+        case "bool":
+          finalValue = Boolean.valueOf(value);
+          break;
+        default:
+          finalValue = value;
+      }
+    }
+    return updateJsonPathValue(jsonObject, jsonPathKey, finalValue);
+  }
 
 
   public static JsonObject updateJsonPathValue(JsonObject jsonObject, String jsonPathKey, Object value) {
@@ -79,5 +87,7 @@ public class JsonUtils {
     documentContext.set(jsonPathKey, value);
     return new Gson().fromJson(documentContext.jsonString(), JsonObject.class);
   }
+
+
 
 }
