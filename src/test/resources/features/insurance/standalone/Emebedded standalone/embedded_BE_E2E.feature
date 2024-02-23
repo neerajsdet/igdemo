@@ -1,7 +1,7 @@
-@cyber_fraud_embedded_E2E
-Feature: Verify shop insurance E2E flow up to policy details
+@cyber-fraud-embedded-E2E
+Feature: Verify Insurance Embedded BE order creation E2E flow up to policy details
 
-  Scenario: Shop Insurance E2E flow verification
+  Scenario: Embedded Insurance E2E flow verification
     Given generate the sso token with mobile "7055585511", password "paytm@123" and save in global data with key "sso_token"
 
 #    Given set the request base url "insurance_url" and endpoint "proposal_details_api_endpoint"
