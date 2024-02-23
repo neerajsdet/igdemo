@@ -1,0 +1,34 @@
+{
+  "campaign": "",
+  "data": {
+    "phone": "7055585511",
+    "fullName": "Sanjay Rana",
+    "completeAddress": {
+      "addressId": "700000000308516276",
+      "address1": "Paytm",
+      "address2": "Sector 98",
+      "city": "Mathura",
+      "state": "Uttar Pradesh",
+      "pin": "281308",
+      "country": "",
+      "id": "applicant__communication_address__id"
+    },
+    "shop_type": null
+  },
+  "formData": {
+    "customer_name": "Sanjay Rana",
+    "phone": "7055585511",
+    "applicant__communication_address__id": "700000000308516276",
+    "completeAddress": {
+      "addressId": "700000000308516276",
+      "address1": "Paytm",
+      "address2": "Sector 98",
+      "city": "Mathura",
+      "state": "Uttar Pradesh",
+      "pin": "281308",
+      "country": "",
+      "id": "applicant__communication_address__id"
+    },
+    "userAddress": "Paytm,Sector 98,281308,Mathura,Uttar Pradesh"
+  }
+}
