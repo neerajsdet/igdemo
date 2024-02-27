@@ -6,25 +6,7 @@
       },
       "product_id": 1235272705,
       "vertical_id": "",
-      "quantity": 1,
-      "meta_data": {
-        "info": {
-          "customer_name": "Venkat var",
-          "phone": "9416170809",
-          "completeAddress": {
-            "addressId": "700000000143005502",
-            "address1": "NA",
-            "address2": "NA",
-            "city": "NA",
-            "state": "Haryana",
-            "pin": "133301",
-            "country": "NA",
-            "id": "applicant__communication_address__id"
-          },
-          "userAddress": "NA,NA,133301,NA,Haryana",
-          "address": "NA,NA,133301,NA,Haryana"
-        }
-      }
+      "quantity": 1
     }
   ]
 }
