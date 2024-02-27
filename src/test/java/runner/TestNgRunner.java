@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 @CucumberOptions(
     plugin = {"pretty", "html:target/report/cucumber.html", "json:target/report/cucumber.json"},
     features = {"src/test/resources/features/insurance"},
-    tags = "@1sb-test",
+    tags = "@cyber-fraud-embedded-E2E",
     glue = {"steps"}
 )
 public class TestNgRunner extends AbstractTestNGCucumberTests {
