@@ -32,6 +32,7 @@ public class InsuranceSteps extends Base {
 
   @Given("set the request headers, query params")
   public void updateParams(DataTable dataTable) {
+    Base.reqResUtilMap.get(threadId).setPayloadAsBlank();
     HashMap<String, HashMap<String, String>> map = Base.reqResUtilMap.get(threadId)
         .getDataParamsMap(dataTable);
     Base.reqResUtilMap.get(threadId).setHeadersData(map.get("headers"));
@@ -52,6 +53,13 @@ public class InsuranceSteps extends Base {
       int expectedResponseCode) {
     Base.reqResUtilMap.get(threadId)
         .processRequestAndVerifyResponseCode(httpMethod, retryCount, expectedResponseCode);
+  }
+
+  @When("perform the repeated {string} api call {int} times and validate response code {int}")
+  public void performRepeatedApiCallAndValidateResponseCode(String httpMethod, int retryCount,
+      int expectedResponseCode) {
+    Base.reqResUtilMap.get(threadId)
+        .processRepeatedRequestAndVerifyResponseCode(httpMethod, retryCount, expectedResponseCode);
   }
 
   @When("perform the {string} api call {int} times and validate response code {int} and get the value of {string} from response and save in global data with key {string}")

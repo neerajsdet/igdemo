@@ -46,7 +46,8 @@ Feature: Verify shop insurance E2E flow up to policy details
     Given set the request headers, query params
       | h:Content-Type   | h:sso_token | qp:channel | qp:order_id |
       | application/json | sso_token   | androidapp | order_id    |
+    Then perform the repeated "GET" api call 15 times and validate response code 200
     Then perform the "GET" api call 5 times, verify response code 200 and below response data
-      | title              | my_ins_details[0].plan_details.sum_insured |
-      | Manage My Policies | 2500000                                    |
+      | title              | my_ins_details[0].plan_details.sum_insured | my_ins_details[0].plan_details.status |
+      | Manage My Policies | 2500000                                    | success                               |
 

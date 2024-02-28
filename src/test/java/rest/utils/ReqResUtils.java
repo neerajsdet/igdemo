@@ -45,6 +45,10 @@ public class ReqResUtils {
     requestData.setPayload(payload);
   }
 
+  public void setPayloadAsBlank() {
+    requestData.setPayload("");
+  }
+
   @SneakyThrows
   public Response processRequestAndVerifyResponseCode(String httpMethod, int retryCount,
       int expectedResponseCode) {
@@ -54,6 +58,19 @@ public class ReqResUtils {
       retryCount--;
       Thread.sleep(2000);
     } while (response.getStatusCode() != expectedResponseCode && retryCount > 0);
+    Assert.assertEquals(response.getStatusCode(), expectedResponseCode);
+    return response;
+  }
+
+  @SneakyThrows
+  public Response processRepeatedRequestAndVerifyResponseCode(String httpMethod, int retryCount,
+      int expectedResponseCode) {
+    Response response = null;
+    while ( retryCount > 0) {
+      response = restProcessor.processApiRequest(httpMethod, requestData);
+      retryCount--;
+      Thread.sleep(2000);
+    }
     Assert.assertEquals(response.getStatusCode(), expectedResponseCode);
     return response;
   }
